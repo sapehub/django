@@ -14,6 +14,10 @@ RUN apt-get update && apt-get install -y python-mysqldb && apt-get clean && rm -
 
 ADD . /code/
 
+RUN django-admin.py startproject composeexample .
+
+ADD settings.py /code/composeexample/
+
 EXPOSE 8000
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
